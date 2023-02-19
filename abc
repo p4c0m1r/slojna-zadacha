@@ -1,0 +1,99 @@
+using System;
+using System.CodeDom;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp25
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string month = Console.ReadLine();
+            int nights = int.Parse(Console.ReadLine());
+
+            switch (month)
+            {
+                case "May": break;
+                case "June": break;
+                case "July": break;
+                case "August": break;
+                case "September": break;
+                case "October": break;
+                default: Console.WriteLine("Error");break;
+            }
+            if (nights < 0 && nights > 200)
+            {
+                Console.WriteLine("Error");
+            }
+
+            if (month == "May" || month =="October")
+            {
+                if (nights <= 7)
+                {
+                    double costOfTripPerStudio = nights * 50;
+                    double costOfTripPerApartment = nights * 65;
+                    Console.WriteLine($"Studio: {costOfTripPerStudio} lv");
+                    Console.WriteLine($"Apartme: {costOfTripPerApartment} lv");
+                }
+                else if (nights>7 && nights<= 14)
+                {
+                    double costOfTripPerStudio = nights * 50;
+                    costOfTripPerStudio -= 0.05 * costOfTripPerStudio;
+                    double costOfTripPerApartment = nights * 65;
+                    Console.WriteLine($"Studio: {costOfTripPerStudio} lv");
+                    Console.WriteLine($"Apartme: {costOfTripPerApartment} lv");
+                }
+                else 
+                {
+                    double costOfTripPerStudio = nights * 50;
+                    costOfTripPerStudio -= 0.3 * costOfTripPerStudio;
+                    double costOfTripPerApartment = nights * 65;
+                    costOfTripPerApartment -= 0.1 * costOfTripPerApartment;
+                    Console.WriteLine($"Studio: {costOfTripPerStudio:f2} lv");
+                    Console.WriteLine($"Apartme: {costOfTripPerApartment:f2} lv");
+                }
+            }
+            else if (month == "June" || month == "September")
+            {
+                if (nights > 14)
+                {
+                    double costOfTripPerStudio = nights * 75.20;
+                    costOfTripPerStudio -= 0.2 * costOfTripPerStudio;
+                    double costOfTripPerApartment = nights * 68.70;
+                    costOfTripPerApartment -= 0.1 * costOfTripPerApartment;
+                    Console.WriteLine($"Studio: {costOfTripPerStudio:f2} lv");
+                    Console.WriteLine($"Apartme: {costOfTripPerApartment:f2} lv");
+                }
+                else
+                {
+                    double costOfTripPerStudio = nights * 75.20;
+                    double costOfTripPerApartment = nights * 68.70;
+                    Console.WriteLine($"Studio: {costOfTripPerStudio:f2} lv");
+                    Console.WriteLine($"Apartme: {costOfTripPerApartment:f2} lv");
+                }
+            }
+            else
+            {
+                if (nights > 14)
+                {
+                    double costOfTripPerStudio = nights * 76;
+                    double costOfTripPerApartment = nights * 77;
+                    costOfTripPerApartment -= 0.1*costOfTripPerApartment;
+                    Console.WriteLine($"Studio: {costOfTripPerStudio:f2} lv");
+                    Console.WriteLine($"Apartme: {costOfTripPerApartment:f2} lv");
+                }
+                else
+                {
+                    double costOfTripPerStudio = nights * 76;
+                    double costOfTripPerApartment = nights * 77;
+                    Console.WriteLine($"Studio: {costOfTripPerStudio:f2} lv");
+                    Console.WriteLine($"Apartme: {costOfTripPerApartment:f2} lv");
+                }
+            }
+
+        }
+    }
+}
